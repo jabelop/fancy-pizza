@@ -17,22 +17,27 @@ import { SizesModule } from './sizes/sizes.module';
 import { SizesController } from './sizes/sizes.controller';
 import { SizesServiceInterface } from './sizes/interfaces/sizes-service.interface';
 import { SizesService } from './sizes/sizes.service';
+import { ToppingsModule } from './toppings/toppings.module';
+import { ToppingsController } from './toppings/toppings.controller';
+import { ToppingsServiceInterface } from './toppings/interfaces/toppings-service.interface';
+import { ToppingsService } from './toppings/toppings.service';
 
 const usersServiceProvider = {provide: UsersServiceInterface, useClass: UsersService};
 const authServiceProvider = {provide: AuthServiceInterface, useClass: AuthService};
 const massesServiceProvider = {provide: MassesServiceInterface, useClass: MassesService};
 const sizesServiceProvider = {provide: SizesServiceInterface, useClass: SizesService};
-
+const toppingsServiceProvider = {provide: ToppingsServiceInterface, useClass: ToppingsService};
 
 @Module({
-  imports: [UsersModule, AuthModule, JwtModule, MassesModule, SizesModule],
-  controllers: [AppController, AuthController, MassesController, SizesController],
+  imports: [UsersModule, AuthModule, JwtModule, MassesModule, SizesModule, ToppingsModule],
+  controllers: [AppController, AuthController, MassesController, SizesController, ToppingsController],
   providers: [
     AppService,
     usersServiceProvider,
     authServiceProvider,
     massesServiceProvider,
-    sizesServiceProvider
+    sizesServiceProvider,
+    toppingsServiceProvider
   ],
 })
 export class AppModule {}
