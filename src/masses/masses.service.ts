@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { MassServiceInterface } from './interfaces/mass-service.interface';
+import { MassesServiceInterface } from './interfaces/masses-service.interface';
 import { Mass } from './interfaces/mass.interface';
 
 @Injectable()
-export class MassService implements MassServiceInterface {
+export class MassesService implements MassesServiceInterface {
     private readonly masses: Mass[] = [
         {
             id: "1",

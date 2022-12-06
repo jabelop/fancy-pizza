@@ -9,10 +9,10 @@ import { AuthServiceInterface } from './auth/interfaces/auth-service.interface';
 import { UsersServiceInterface } from './users/interfaces/users-service.interface';
 import { UsersModule } from './users/users.module';
 import { UsersService } from './users/users.service';
-import { MassModule } from './mass/mass.module';
-import { MassController } from './mass/mass.controller';
-import { MassServiceInterface } from './mass/interfaces/mass-service.interface';
-import { MassService } from './mass/mass.service';
+import { MassesModule } from './masses/masses.module';
+import { MassesController } from './masses/masses.controller';
+import { MassesServiceInterface } from './masses/interfaces/masses-service.interface';
+import { MassesService } from './masses/masses.service';
 import { SizesModule } from './sizes/sizes.module';
 import { SizesController } from './sizes/sizes.controller';
 import { SizesServiceInterface } from './sizes/interfaces/sizes-service.interface';
@@ -20,18 +20,18 @@ import { SizesService } from './sizes/sizes.service';
 
 const usersServiceProvider = {provide: UsersServiceInterface, useClass: UsersService};
 const authServiceProvider = {provide: AuthServiceInterface, useClass: AuthService};
-const massServiceProvider = {provide: MassServiceInterface, useClass: MassService};
+const massesServiceProvider = {provide: MassesServiceInterface, useClass: MassesService};
 const sizesServiceProvider = {provide: SizesServiceInterface, useClass: SizesService};
 
 
 @Module({
-  imports: [UsersModule, AuthModule, JwtModule, MassModule, SizesModule],
-  controllers: [AppController, AuthController, MassController, SizesController],
+  imports: [UsersModule, AuthModule, JwtModule, MassesModule, SizesModule],
+  controllers: [AppController, AuthController, MassesController, SizesController],
   providers: [
     AppService,
     usersServiceProvider,
     authServiceProvider,
-    massServiceProvider,
+    massesServiceProvider,
     sizesServiceProvider
   ],
 })

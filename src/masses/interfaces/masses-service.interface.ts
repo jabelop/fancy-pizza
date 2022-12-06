@@ -1,6 +1,6 @@
 import { Mass } from "./mass.interface";
 
-export interface MassServiceInterface {
+export interface MassesServiceInterface {
 
     /**
      * find a mass by its id
@@ -19,4 +19,4 @@ export interface MassServiceInterface {
     findAll(): Promise<Mass[]>;
 }
 
-export const MassServiceInterface = Symbol("MassServiceInterface");
+export const MassesServiceInterface = Symbol("MassesServiceInterface");

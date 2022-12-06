@@ -1,19 +1,19 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { MassServiceInterface } from './interfaces/mass-service.interface';
+import { MassesServiceInterface } from './interfaces/masses-service.interface';
 import { Mass } from './interfaces/mass.interface';
-import { MassService } from './mass.service';
+import { MassesService } from './masses.service';
 
-const massServiceProvider = {provide: MassServiceInterface, useClass: MassService};
+const massesServiceProvider = {provide: MassesServiceInterface, useClass: MassesService};
 
 describe('MassService', () => {
-  let service: MassServiceInterface;
+  let service: MassesServiceInterface;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [massServiceProvider],
+      providers: [massesServiceProvider],
     }).compile();
 
-    service = module.get<MassServiceInterface>(MassServiceInterface);
+    service = module.get<MassesServiceInterface>(MassesServiceInterface);
   });
 
   it('should be defined', () => {
