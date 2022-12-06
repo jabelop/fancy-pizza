@@ -8,14 +8,17 @@ export class SizesService implements SizesServiceInterface{
         {
             id: "1",
             size: 'small',
+            price: 3,
         },
         {
             id: "2",
             size: 'medium',
+            price: 7,
         },
         {
             id: "3",
             size: 'large',
+            price: 10
         },
     ];
 
