@@ -8,15 +8,18 @@ export class MassesService implements MassesServiceInterface {
         {
             id: "1",
             type: 'standart',
+            price: 1
         },
         {
             id: "2",
             type: 'thing',
+            price: 2
         },
         {
             id: "3",
             type: 'cream cheese roller',
-        },
+            price: 5
+        }
     ];
 
     async findOne(id: string): Promise<Mass | undefined> {

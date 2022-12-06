@@ -3,7 +3,7 @@ import { MassesServiceInterface } from './interfaces/masses-service.interface';
 import { Mass } from './interfaces/mass.interface';
 import { MassesService } from './masses.service';
 
-const massesServiceProvider = {provide: MassesServiceInterface, useClass: MassesService};
+const massesServiceProvider = { provide: MassesServiceInterface, useClass: MassesService };
 
 describe('MassService', () => {
   let service: MassesServiceInterface;
@@ -23,20 +23,25 @@ describe('MassService', () => {
   it('Should return all the stored masses', async () => {
     const masses: Mass[] = await service.findAll();
     expect(JSON.stringify(masses))
-      .toEqual(JSON.stringify([
-        {
-          id: "1",
-          type: 'standart',
-        },
-        {
-          id: "2",
-          type: 'thing',
-        },
-        {
-          id: "3",
-          type: 'cream cheese roller',
-        },
-      ]));
+      .toEqual(JSON.stringify(
+        [
+          {
+            id: "1",
+            type: 'standart',
+            price: 1
+          },
+          {
+            id: "2",
+            type: 'thing',
+            price: 2
+          },
+          {
+            id: "3",
+            type: 'cream cheese roller',
+            price: 5
+          }
+        ]
+      ));
   });
 
   it('Should return the second stored mass', async () => {
@@ -46,7 +51,9 @@ describe('MassService', () => {
         {
           id: "2",
           type: 'thing',
-        }));
+          price: 2
+        }
+      ));
   });
 
   it('Should return undefined', async () => {
