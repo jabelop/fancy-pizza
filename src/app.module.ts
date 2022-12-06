@@ -9,17 +9,24 @@ import { AuthServiceInterface } from './auth/interfaces/auth-service.interface';
 import { UsersServiceInterface } from './users/interfaces/users-service.interface';
 import { UsersModule } from './users/users.module';
 import { UsersService } from './users/users.service';
+import { MassModule } from './mass/mass.module';
+import { MassController } from './mass/mass.controller';
+import { MassServiceInterface } from './mass/interfaces/mass-service.interface';
+import { MassService } from './mass/mass.service';
 
 const usersServiceProvider = {provide: UsersServiceInterface, useClass: UsersService};
 const authServiceProvider = {provide: AuthServiceInterface, useClass: AuthService};
+const massServiceProvider = {provide: MassServiceInterface, useClass: MassService};
+
 
 @Module({
-  imports: [UsersModule, AuthModule, JwtModule],
-  controllers: [AppController, AuthController],
+  imports: [UsersModule, AuthModule, JwtModule, MassModule],
+  controllers: [AppController, AuthController, MassController],
   providers: [
     AppService,
     usersServiceProvider,
-    authServiceProvider
+    authServiceProvider,
+    massServiceProvider
   ],
 })
 export class AppModule {}
