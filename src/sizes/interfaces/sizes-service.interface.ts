@@ -1,6 +1,6 @@
 import { Size } from "./size.interface";
 
-export interface SizeServiceInterface {
+export interface SizesServiceInterface {
     /**
      * find a size by its id
      * 
@@ -18,4 +18,4 @@ export interface SizeServiceInterface {
      findAll(): Promise<Size[]>;
  }
  
- export const SizeServiceInterface = Symbol("SizeServiceInterface");
+ export const SizesServiceInterface = Symbol("SizesServiceInterface");

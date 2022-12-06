@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { SizeServiceInterface } from './interfaces/size-service.interface';
+import { SizesServiceInterface } from './interfaces/sizes-service.interface';
 import { Size } from './interfaces/size.interface';
 
 @Injectable()
-export class SizeService implements SizeServiceInterface{
+export class SizesService implements SizesServiceInterface{
     private readonly sizes: Size[] = [
         {
             id: "1",

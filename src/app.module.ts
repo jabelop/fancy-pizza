@@ -13,26 +13,26 @@ import { MassModule } from './mass/mass.module';
 import { MassController } from './mass/mass.controller';
 import { MassServiceInterface } from './mass/interfaces/mass-service.interface';
 import { MassService } from './mass/mass.service';
-import { SizeModule } from './size/size.module';
-import { SizeController } from './size/size.controller';
-import { SizeServiceInterface } from './size/interfaces/size-service.interface';
-import { SizeService } from './size/size.service';
+import { SizesModule } from './sizes/sizes.module';
+import { SizesController } from './sizes/sizes.controller';
+import { SizesServiceInterface } from './sizes/interfaces/sizes-service.interface';
+import { SizesService } from './sizes/sizes.service';
 
 const usersServiceProvider = {provide: UsersServiceInterface, useClass: UsersService};
 const authServiceProvider = {provide: AuthServiceInterface, useClass: AuthService};
 const massServiceProvider = {provide: MassServiceInterface, useClass: MassService};
-const sizeServiceProvider = {provide: SizeServiceInterface, useClass: SizeService};
+const sizesServiceProvider = {provide: SizesServiceInterface, useClass: SizesService};
 
 
 @Module({
-  imports: [UsersModule, AuthModule, JwtModule, MassModule, SizeModule],
-  controllers: [AppController, AuthController, MassController, SizeController],
+  imports: [UsersModule, AuthModule, JwtModule, MassModule, SizesModule],
+  controllers: [AppController, AuthController, MassController, SizesController],
   providers: [
     AppService,
     usersServiceProvider,
     authServiceProvider,
     massServiceProvider,
-    sizeServiceProvider
+    sizesServiceProvider
   ],
 })
 export class AppModule {}

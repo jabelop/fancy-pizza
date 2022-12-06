@@ -1,19 +1,19 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { SizeServiceInterface } from './interfaces/size-service.interface';
+import { SizesServiceInterface } from './interfaces/sizes-service.interface';
 import { Size } from './interfaces/size.interface';
-import { SizeService } from './size.service';
+import { SizesService } from './sizes.service';
 
-const sizeServiceProvider = {provide: SizeServiceInterface, useClass: SizeService};
+const sizesServiceProvider = {provide: SizesServiceInterface, useClass: SizesService};
 
-describe('SizeService', () => {
-  let service: SizeServiceInterface;
+describe('SizesService', () => {
+  let service: SizesServiceInterface;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [sizeServiceProvider],
+      providers: [sizesServiceProvider],
     }).compile();
 
-    service = module.get<SizeServiceInterface>(SizeServiceInterface);
+    service = module.get<SizesServiceInterface>(SizesServiceInterface);
   });
 
   it('should be defined', () => {
@@ -39,7 +39,7 @@ describe('SizeService', () => {
     ]));
   });
 
-  it('Should return the second stored mass', async () => {
+  it('Should return the third stored size', async () => {
     const size: Size = await service.findOne("3");
     expect(JSON.stringify(size))
       .toEqual(JSON.stringify(
