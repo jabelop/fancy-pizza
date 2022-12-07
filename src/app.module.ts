@@ -21,23 +21,33 @@ import { ToppingsModule } from './toppings/toppings.module';
 import { ToppingsController } from './toppings/toppings.controller';
 import { ToppingsServiceInterface } from './toppings/interfaces/toppings-service.interface';
 import { ToppingsService } from './toppings/toppings.service';
+import { OrdersModule } from './orders/orders.module';
+import { OrdersController } from './orders/orders.controller';
+import { OrdersServiceInterface } from './orders/interfaces/orders-service.interface';
+import { OrdersService } from './orders/orders.service';
+import { OrderValidatorInterface } from './orders/interfaces/order-validator.interface';
+import { OrderValidator } from './orders/validators/order.validator';
 
 const usersServiceProvider = {provide: UsersServiceInterface, useClass: UsersService};
 const authServiceProvider = {provide: AuthServiceInterface, useClass: AuthService};
 const massesServiceProvider = {provide: MassesServiceInterface, useClass: MassesService};
 const sizesServiceProvider = {provide: SizesServiceInterface, useClass: SizesService};
 const toppingsServiceProvider = {provide: ToppingsServiceInterface, useClass: ToppingsService};
+const ordersServiceProvider = {provide: OrdersServiceInterface, useClass: OrdersService};
+const orderValidatorProvider = {provide: OrderValidatorInterface, useClass: OrderValidator};
 
 @Module({
-  imports: [UsersModule, AuthModule, JwtModule, MassesModule, SizesModule, ToppingsModule],
-  controllers: [AppController, AuthController, MassesController, SizesController, ToppingsController],
+  imports: [UsersModule, AuthModule, JwtModule, MassesModule, SizesModule, ToppingsModule, OrdersModule],
+  controllers: [AppController, AuthController, MassesController, SizesController, ToppingsController, OrdersController],
   providers: [
     AppService,
     usersServiceProvider,
     authServiceProvider,
     massesServiceProvider,
     sizesServiceProvider,
-    toppingsServiceProvider
+    toppingsServiceProvider,
+    ordersServiceProvider,
+    orderValidatorProvider
   ],
 })
 export class AppModule {}
